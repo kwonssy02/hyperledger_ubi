@@ -1,0 +1,24 @@
+query AllVehicles {
+  description: "레지스트리 내 모든 차량 SELECT"
+  statement:  
+    SELECT  com.autoever.ubi.vehicle.Vehicle
+}
+
+
+query AllUsers {
+  description: "레지스트리 내 모든 유저 SELECT"
+  statement:
+    SELECT  com.autoever.ubi.participant.User
+}
+
+query AllVehicleTypes {
+  description: "레지스트리 내 모든 차종 SELECT"
+  statement:
+    SELECT  com.autoever.ubi.vehicle.VehicleType
+}
+
+query AllVehicleData {
+  description: "레지스트리 내 모든 차량 데이터 SELECT"
+  statement:
+    SELECT  com.autoever.ubi.vehicle.VehicleData
+}

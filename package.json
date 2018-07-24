@@ -1,0 +1,25 @@
+{
+  "name": "ubi",
+  "version": "0.0.6",
+  "description": "UBI Modeling",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "author": "kwonhc",
+  "email": "kwonhc@hyundai-autoever.com",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "composer-admin": "latest",
+    "composer-client": "latest",
+    "composer-connector-embedded": "latest",
+    "browserfs": "latest",
+    "chai": "latest",
+    "eslint": "latest",
+    "istanbul": "latest",
+    "mkdirp": "latest",
+    "mocha": "latest"
+  },
+  "dependencies": {
+    "chai": "^4.1.2"
+  }
+}

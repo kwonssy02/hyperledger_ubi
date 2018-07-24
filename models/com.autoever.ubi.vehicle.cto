@@ -1,0 +1,65 @@
+namespace com.autoever.ubi.vehicle
+
+import com.autoever.ubi.participant.User
+
+/*
+{
+  "$class": "com.autoever.ubi.vehicle.Vehicle",
+  "vehicleId": "2162",
+  "vehicleType": "resource:com.autoever.ubi.vehicle.VehicleType#STF-001",
+  "owner": "resource:com.autoever.ubi.participant.User#kwonhc",
+  "ownershipType": "OWNED",
+  "Color": "silver"
+}
+*/
+asset Vehicle identified by vehicleId {
+  o String          vehicleId
+  --> VehicleType   vehicleType
+  --> User          owner   optional
+  o Ownership       ownershipType default="OWNED"
+  o String          Color
+}
+
+enum Ownership {
+  o LEASED
+  o OWNED
+}
+
+/*
+{
+  "$class": "com.autoever.ubi.vehicle.VehicleType",
+  "vehicleType": "STF-001",
+  "vehicleName": "Santafe",
+  "releasedDate": "2018-07-24T13:02:43.677Z"
+}
+*/
+asset VehicleType identified by vehicleType {
+  o String      vehicleType   regex=/[A-Z][A-Z][A-Z]-[0-9][0-9][0-9]/
+  o String      vehicleName
+  o DateTime    releasedDate
+}
+
+/*
+{
+  "$class": "com.autoever.ubi.vehicle.VehicleData",
+  "vehicleDataId": "3308",
+  "vehicle": "resource:com.autoever.ubi.vehicle.Vehicle#0350",
+  "occuredDate": "2018-07-24T13:05:50.046Z",
+  "speed": 160.24,
+  "angle": 2.5
+}
+*/
+asset VehicleData identified by vehicleDataId {
+  o String      vehicleDataId
+  --> Vehicle   vehicle
+  o DateTime    occuredDate
+  o Double      speed   range = [0.0, ]
+  o Double      angle   range = [-90.0, 90.0]
+}
+
+transaction insertVehicleData {
+  o String      vehicleId
+  o DateTime    occuredDate
+  o Double      speed
+  o Double      angle
+}
