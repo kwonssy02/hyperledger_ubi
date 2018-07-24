@@ -1,6 +1,6 @@
-# org.acme.airline
+# com.autoever.ubi
 
-# Airline v9
+# UBI
 
 https://hyperledger.github.io/composer/reference/acl_language.html
 
