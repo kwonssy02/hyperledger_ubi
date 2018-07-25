@@ -32,6 +32,11 @@ concept Contact {
   "phone": "010-1234-5678"
 }
 */ 
+
+participant Car extends UBIParticipant {
+  
+}
+
 participant User extends UBIParticipant {
   
 }
