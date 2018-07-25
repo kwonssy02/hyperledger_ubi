@@ -1,54 +1,30 @@
-namespace com.autoever.ubi.vehicle
+namespace com.autoever.ubi.asset
 
 import com.autoever.ubi.participant.User
 
-/*
-{
-  "$class": "com.autoever.ubi.vehicle.Vehicle",
-  "vehicleId": "2162",
-  "vehicleType": "resource:com.autoever.ubi.vehicle.VehicleType#STF-001",
-  "owner": "resource:com.autoever.ubi.participant.User#kwonhc",
-  "ownershipType": "OWNED",
-  "Color": "silver"
-}
-*/
+// 차량 asset
 asset Vehicle identified by vehicleId {
   o String          vehicleId
   --> VehicleType   vehicleType
   --> User          owner   optional
   o Ownership       ownershipType default="OWNED"
-  o String          Color
+  o String          color
 }
 
+// 차량 소유권 도메인
 enum Ownership {
   o LEASED
   o OWNED
 }
 
-/*
-{
-  "$class": "com.autoever.ubi.vehicle.VehicleType",
-  "vehicleType": "STF-001",
-  "vehicleName": "Santafe",
-  "releasedDate": "2018-07-24T13:02:43.677Z"
-}
-*/
+// 차종 asset
 asset VehicleType identified by vehicleType {
   o String      vehicleType   regex=/[A-Z][A-Z][A-Z]-[0-9][0-9][0-9]/
   o String      vehicleName
   o DateTime    releasedDate
 }
 
-/*
-{
-  "$class": "com.autoever.ubi.vehicle.VehicleData",
-  "vehicleDataId": "3308",
-  "vehicle": "resource:com.autoever.ubi.vehicle.Vehicle#0350",
-  "occuredDate": "2018-07-24T13:05:50.046Z",
-  "speed": 160.24,
-  "angle": 2.5
-}
-*/
+// 차량 데이터 asset
 asset VehicleData identified by vehicleDataId {
   o String      vehicleDataId
   --> Vehicle   vehicle
@@ -57,9 +33,71 @@ asset VehicleData identified by vehicleDataId {
   o Double      angle   range = [-90.0, 90.0]
 }
 
-transaction insertVehicleData {
-  o String      vehicleId
-  o DateTime    occuredDate
-  o Double      speed
-  o Double      angle
+
+
+
+/*
+{
+  "$class": "com.autoever.ubi.asset.VehicleType",
+  "vehicleType": "STF-001",
+  "vehicleName": "SANTAFE",
+  "releasedDate": "2018-07-25T14:55:18.816Z"
 }
+
+{
+  "$class": "com.autoever.ubi.asset.VehicleType",
+  "vehicleType": "TUC-001",
+  "vehicleName": "TUCSON",
+  "releasedDate": "2018-07-25T14:55:18.816Z"
+}
+*/
+
+
+/*
+{
+  "$class": "com.autoever.ubi.asset.Vehicle",
+  "vehicleId": "v1",
+  "vehicleType": "resource:com.autoever.ubi.asset.VehicleType#STF-001",
+  "owner": "resource:com.autoever.ubi.participant.User#kwonhc",
+  "ownershipType": "LEASED",
+  "color": "silver"
+}
+
+{
+  "$class": "com.autoever.ubi.asset.Vehicle",
+  "vehicleId": "v2",
+  "vehicleType": "resource:com.autoever.ubi.asset.VehicleType#TUC-001",
+  "owner": "resource:com.autoever.ubi.participant.User#yeo",
+  "ownershipType": "OWNED",
+  "color": "silver"
+}
+*/
+
+/*
+{
+  "$class": "com.autoever.ubi.asset.VehicleData",
+  "vehicleDataId": "vd1",
+  "vehicle": "resource:com.autoever.ubi.asset.Vehicle#v1",
+  "occuredDate": "2018-07-25T15:21:03.061Z",
+  "speed": 120.23,
+  "angle": 2.3
+}
+
+{
+  "$class": "com.autoever.ubi.asset.VehicleData",
+  "vehicleDataId": "vd2",
+  "vehicle": "resource:com.autoever.ubi.asset.Vehicle#v1",
+  "occuredDate": "2018-07-25T15:21:04.061Z",
+  "speed": 123.09,
+  "angle": 0.4
+}
+
+{
+  "$class": "com.autoever.ubi.asset.VehicleData",
+  "vehicleDataId": "vd3",
+  "vehicle": "resource:com.autoever.ubi.asset.Vehicle#v1",
+  "occuredDate": "2018-07-25T15:21:05.061Z",
+  "speed": 140,
+  "angle": -5.1
+}
+*/

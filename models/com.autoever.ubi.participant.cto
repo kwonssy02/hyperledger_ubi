@@ -2,41 +2,42 @@ namespace com.autoever.ubi.participant
 
 abstract participant UBIParticipant identified by participantKey {
   o String    participantKey
-  o Contact   contact
+  o String    name
+  o String    email optional
+  o String    phone optional
 }
 
+/*
 concept Contact {
-  o String    fName
-  o String    lname
-  o String    email
+  o String    userName    
+  o String    email   optional
+  o String    phone   optional
 }
-
+*/
 
 /*
 {
   "$class": "com.autoever.ubi.participant.User",
   "participantKey": "kwonhc",
-  "contact": {
-    "$class": "com.autoever.ubi.participant.Contact",
-    "fName": "혁찬",
-    "lname": "권",
-    "email": "kwonhc@hyundai-autoever.com"
-  }
+  "name": "권혁찬",
+  "email": "kwonhc@hyundai-autoever.com",
+  "phone": "010-8191-5791"
 }
 
 {
   "$class": "com.autoever.ubi.participant.User",
-  "participantKey": "hyunseong_yeo",
-  "contact": {
-    "$class": "com.autoever.ubi.participant.Contact",
-    "fName": "현승",
-    "lname": "여",
-    "email": "hyunseong_yeo@hyundai-autoever.com"
-  }
+  "participantKey": "yeo",
+  "name": "여현승",
+  "email": "hyungseong_yeo@hyundai-autoever.com",
+  "phone": "010-1234-5678"
 }
 */ 
 participant User extends UBIParticipant {
   
+}
+
+participant Manufacturer extends UBIParticipant  {
+  o String    companyName
 }
 
 participant InsuranceCompany extends UBIParticipant {

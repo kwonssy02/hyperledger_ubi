@@ -1,7 +1,7 @@
 query AllVehicles {
   description: "레지스트리 내 모든 차량 SELECT"
   statement:  
-    SELECT  com.autoever.ubi.vehicle.Vehicle
+    SELECT  com.autoever.ubi.asset.Vehicle
 }
 
 
@@ -14,11 +14,18 @@ query AllUsers {
 query AllVehicleTypes {
   description: "레지스트리 내 모든 차종 SELECT"
   statement:
-    SELECT  com.autoever.ubi.vehicle.VehicleType
+    SELECT  com.autoever.ubi.asset.VehicleType
 }
 
 query AllVehicleData {
   description: "레지스트리 내 모든 차량 데이터 SELECT"
   statement:
-    SELECT  com.autoever.ubi.vehicle.VehicleData
+    SELECT  com.autoever.ubi.asset.VehicleData
+}
+
+query UserVehicleData {
+  description: "사용자의 차량 데이터 SELECT"
+  statement:
+    SELECT  com.autoever.ubi.asset.VehicleData
+    WHERE   (vehicle.owner.participantKey == _$participantKey)
 }

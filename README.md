@@ -11,10 +11,10 @@ Refer to lecture on Access Control Language
 composer archive create  --sourceType dir --sourceName ../
 
 #2.1 Install the archive
-composer network install -a ./ubi@0.0.3.bna -c PeerAdmin@hlfv1
+composer network install -a ./ubi@0.0.6.bna -c PeerAdmin@hlfv1
 
 #2.2 Strart the network
-composer network start -n ubi -c PeerAdmin@hlfv1 -V 0.0.1 -A admin -S adminpw
+composer network start -n ubi -c PeerAdmin@hlfv1 -V 0.0.6 -A admin -S adminpw
 
 admin>> org.hyperledger.composer.system.NetworkAdmin#admin
 
@@ -56,9 +56,9 @@ composer card import -f wills@airlinev9.card
 composer archive create  --sourceType dir --sourceName ../
 
 #8 Update the Network
-composer network install -a ./ubi@0.0.5.bna -c PeerAdmin@hlfv1
-composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.5
-
+composer network install -a ./ubi@0.0.10.bna -c PeerAdmin@hlfv1
+composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.10
+composer-rest-server -c admin@ubi
 
 composer-rest-server -c johnd@ubi -n always -w true
 

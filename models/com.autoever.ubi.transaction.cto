@@ -1,0 +1,36 @@
+namespace com.autoever.ubi.transaction
+
+/* Car */
+// 차량 데이터 조회
+transaction insertVehicleData {
+  o String      vehicleId
+  o DateTime    occuredDate
+  o Double      speed
+  o Double      angle
+}
+
+
+/* User */
+// 보험사 정보 제공 동의
+transaction updateDataProvidingAgreement {
+  o String    vehicleId
+  o String    participantKey
+}
+
+
+/* Manufacturer */
+// 차종 등록
+transaction insertVehicleType {
+  o String      vehicleType   
+  o String      vehicleName
+  o DateTime    releasedDate
+}
+
+// 차량 등록
+transaction insertVehicle {
+  o String      vehicleType
+  o String      color
+}
+
+
+/* Insurance Company */
