@@ -14,7 +14,7 @@ composer archive create  --sourceType dir --sourceName ../
 composer network install -a ./ubi@0.0.6.bna -c PeerAdmin@hlfv1
 
 #2.2 Strart the network
-composer network start -n ubi -c PeerAdmin@hlfv1 -V 0.0.6 -A admin -S adminpw
+composer network start -n ubi -c PeerAdmin@hlfv1 -V 0.0.10 -A admin -S adminpw
 
 admin>> org.hyperledger.composer.system.NetworkAdmin#admin
 
@@ -56,9 +56,12 @@ composer card import -f wills@airlinev9.card
 composer archive create  --sourceType dir --sourceName ../
 
 #8 Update the Network
-composer network install -a ./ubi@0.0.10.bna -c PeerAdmin@hlfv1
-composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.10
-composer-rest-server -c admin@ubi
+composer network install -a ./ubi@0.0.11.bna -c PeerAdmin@hlfv1
+composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.11
+
+composer-rest-server -c admin@ubi -n never -w true
+yo hyperledger-composer:angular
+
 
 composer-rest-server -c johnd@ubi -n always -w true
 

@@ -1,6 +1,6 @@
 {
   "name": "ubi",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "UBI Modeling",
   "scripts": {
     "test": "mocha --recursive"

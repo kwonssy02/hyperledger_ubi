@@ -33,18 +33,23 @@ concept Contact {
 }
 */ 
 
+
+// 챠량 participant
 participant Car extends UBIParticipant {
-  
+
 }
 
+// 사용자 participant
 participant User extends UBIParticipant {
   
 }
 
+// 제조사 participant
 participant Manufacturer extends UBIParticipant  {
   o String    companyName
 }
 
+// 보험사 participant
 participant InsuranceCompany extends UBIParticipant {
   o String    companyName  
 }
