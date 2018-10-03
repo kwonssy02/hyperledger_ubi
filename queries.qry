@@ -4,6 +4,12 @@ query AllVehicles {
     SELECT  com.autoever.ubi.asset.Vehicle
 }
 
+query UserVehicles {
+  description: "유저 소유의 차량 SELECT"
+  statement:  
+    SELECT  com.autoever.ubi.asset.Vehicle
+    WHERE   (owner == _$participantKey)
+}
 
 query AllUsers {
   description: "레지스트리 내 모든 유저 SELECT"

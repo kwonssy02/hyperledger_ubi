@@ -18,11 +18,11 @@ yo hyperledger-composer:angular
 composer archive create  --sourceType dir --sourceName .
 
 # BNA 아카이브를 네트워크에 install
-composer network install -a ./ubi@0.0.12.bna -c PeerAdmin@hlfv1
+composer network install -a ./ubi@0.0.22.bna -c PeerAdmin@hlfv1
 
 # 네트워크 업데이트
-composer network install -a ./ubi@0.0.12.bna -c PeerAdmin@hlfv1
-composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.12
+composer network install -a ./ubi@0.0.22.bna -c PeerAdmin@hlfv1
+composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.22
 
 
 

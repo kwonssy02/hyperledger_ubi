@@ -41,7 +41,13 @@ participant Car extends UBIParticipant {
 
 // 사용자 participant
 participant User extends UBIParticipant {
-  
+  o Agreement[] agreements optional
+}
+
+// 정보 제공 동의 내역
+concept Agreement {
+  o String    vehicleId    
+  o String    participantKey
 }
 
 // 제조사 participant
