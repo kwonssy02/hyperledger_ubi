@@ -14,15 +14,15 @@ yo hyperledger-composer:angular
 
 
 
-# BNA 아카이브 파일 생성
-composer archive create  --sourceType dir --sourceName ../
+# BNA 아카이브 파일 생성 (BNA 프로젝트 디렉토리에서 수행)
+composer archive create  --sourceType dir --sourceName .
 
 # BNA 아카이브를 네트워크에 install
-composer network install -a ./ubi@0.0.6.bna -c PeerAdmin@hlfv1
+composer network install -a ./ubi@0.0.12.bna -c PeerAdmin@hlfv1
 
 # 네트워크 업데이트
-composer network install -a ./ubi@0.0.11.bna -c PeerAdmin@hlfv1
-composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.11
+composer network install -a ./ubi@0.0.12.bna -c PeerAdmin@hlfv1
+composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.12
 
 
 

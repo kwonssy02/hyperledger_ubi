@@ -28,6 +28,9 @@ transaction insertVehicleType {
 // 차량 등록
 transaction insertVehicle {
   o String      vehicleType
+  o String      vehicleId
+  o String      owner
+  o String      ownershipType
   o String      color
 }
 

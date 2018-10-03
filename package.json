@@ -1,6 +1,6 @@
 {
   "name": "ubi",
-  "version": "0.0.11",
+  "version": "0.0.22",
   "description": "UBI Modeling",
   "scripts": {
     "test": "mocha --recursive"
@@ -20,6 +20,7 @@
     "mocha": "latest"
   },
   "dependencies": {
-    "chai": "^4.1.2"
+    "chai": "^4.1.2",
+    "moment": "^2.22.2"
   }
 }
