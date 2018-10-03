@@ -1,5 +1,31 @@
 # com.autoever.ubi
 
+# Hyperledger 네트워크 실행
+~/fabric-tools$ ./fabricUtil.sh start
+
+# Hyperledger 네트워크 중지
+~/fabric-tools$ ./fabricUtil.sh stop
+
+# Composer Rest Server 실행
+composer-rest-server -c admin@ubi -n never -w true
+
+# Yo generator로 프로젝트 생성
+yo hyperledger-composer:angular
+
+
+
+# BNA 아카이브 파일 생성
+composer archive create  --sourceType dir --sourceName ../
+
+# BNA 아카이브를 네트워크에 install
+composer network install -a ./ubi@0.0.6.bna -c PeerAdmin@hlfv1
+
+# 네트워크 업데이트
+composer network install -a ./ubi@0.0.11.bna -c PeerAdmin@hlfv1
+composer network upgrade -c PeerAdmin@hlfv1 -n ubi -V 0.0.11
+
+
+
 # UBI
 
 https://hyperledger.github.io/composer/reference/acl_language.html
